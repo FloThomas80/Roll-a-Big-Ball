@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(movX,0f, movY);
+        Vector3 movement = new Vector3(movX *-1,0f, movY * -1);
 
         if (movX != 0f || movY != 0f)
         {
