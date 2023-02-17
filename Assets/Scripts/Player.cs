@@ -29,8 +29,8 @@ public class Player : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
-        movX = movementVector.x;
-        movY = movementVector.y;
+        movX = movementVector.x*2;
+        movY = movementVector.y*2;
     }
     void FixedUpdate()
     {
