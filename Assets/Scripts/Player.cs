@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private Rigidbody _rigidbody;
-    //private Joystick joystick;
+    private Joystick joystick;
     private int ScoreValue = 0;
-
+    
     private float movX;
     private float movY;
 
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _scoreText.text = "Score : "+ScoreValue;
-        //joystick = FindObjectOfType<Joystick>();
+        joystick = FindObjectOfType<Joystick>();
     }
 
 
@@ -57,14 +57,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Target"))
-        {
-            Destroy(collision.gameObject);
-            UpdateScore();
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Target"))
+    //    {
+    //        Destroy(collision.gameObject);
+    //        UpdateScore();
+    //    }
+    //}
 
     private void UpdateScore()
     {
