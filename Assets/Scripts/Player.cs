@@ -18,8 +18,12 @@ public class Player : MonoBehaviour
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private ScenarioData _scenario;
     [SerializeField] private GameObject _wallPrefab;
+
     void Start()
     {
+#if UNITY_ANDROID
+        _speed = 5f;
+#endif
         _rigidbody = GetComponent<Rigidbody>();
         _scoreText.text = "Score : "+ScoreValue;
         joystick = FindObjectOfType<Joystick>();
@@ -29,8 +33,8 @@ public class Player : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
-        movX = movementVector.x*2;
-        movY = movementVector.y*2;
+        movX = movementVector.x;
+        movY = movementVector.y;
     }
     void FixedUpdate()
     {
@@ -40,6 +44,7 @@ public class Player : MonoBehaviour
         {
             _rigidbody.AddForce(movement * _speed); //* Time.deltaTime);
         } 
+
 
 
         //if(Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) 

@@ -15,6 +15,13 @@ public class LevelManager : MonoBehaviour
 
     private void WinSequence()
     {
+        if(SceneManager.sceneCountInBuildSettings-1 > SceneManager.GetActiveScene().buildIndex)
+        { 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        }
+        else
+        {
+            SceneManager.LoadScene("Start - Menu");
+        }
     }
 }
